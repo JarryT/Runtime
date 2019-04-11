@@ -14,6 +14,7 @@
 		DF095060225F5F1800F916A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF09505F225F5F1800F916A3 /* Assets.xcassets */; };
 		DF095063225F5F1800F916A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF095061225F5F1800F916A3 /* LaunchScreen.storyboard */; };
 		DF095066225F5F1800F916A3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DF095065225F5F1800F916A3 /* main.m */; };
+		DF09506F225F601600F916A3 /* Test1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF09506E225F601600F916A3 /* Test1ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,9 @@
 		DF095062225F5F1800F916A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DF095064225F5F1800F916A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF095065225F5F1800F916A3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DF09506D225F601600F916A3 /* Test1ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test1ViewController.h; sourceTree = "<group>"; };
+		DF09506E225F601600F916A3 /* Test1ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test1ViewController.m; sourceTree = "<group>"; };
+		DF095074225F613200F916A3 /* Test1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test1.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,7 @@
 		DF095052225F5F1500F916A3 /* Runtime */ = {
 			isa = PBXGroup;
 			children = (
+				DF09506C225F5FF200F916A3 /* Test1 */,
 				DF095053225F5F1500F916A3 /* AppDelegate.h */,
 				DF095054225F5F1500F916A3 /* AppDelegate.m */,
 				DF095056225F5F1500F916A3 /* ViewController.h */,
@@ -72,6 +77,16 @@
 				DF09505C225F5F1500F916A3 /* Runtime.xcdatamodeld */,
 			);
 			path = Runtime;
+			sourceTree = "<group>";
+		};
+		DF09506C225F5FF200F916A3 /* Test1 */ = {
+			isa = PBXGroup;
+			children = (
+				DF095074225F613200F916A3 /* Test1.h */,
+				DF09506D225F601600F916A3 /* Test1ViewController.h */,
+				DF09506E225F601600F916A3 /* Test1ViewController.m */,
+			);
+			path = Test1;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF095058225F5F1500F916A3 /* ViewController.m in Sources */,
+				DF09506F225F601600F916A3 /* Test1ViewController.m in Sources */,
 				DF095055225F5F1500F916A3 /* AppDelegate.m in Sources */,
 				DF095066225F5F1800F916A3 /* main.m in Sources */,
 				DF09505E225F5F1500F916A3 /* Runtime.xcdatamodeld in Sources */,

@@ -59,15 +59,7 @@
 - (id)init {
     self = [super init];
     if (self) {
-        
-        //Calling class method will returns the class object for the receiver’s class.
-        NSLog(@"%@", NSStringFromClass([self class]));
-        NSLog(@"%@", NSStringFromClass([super class]));
-        
-        //问题1:
-        //Test1ViewController / Test1ViewController
-        //因为super为编译器标示符，向super发送的消息被编译成objc_msgSendSuper，但仍以self作为reveiver
-        //Returns the class object for the receiver’s class. 消息接收者是self
+        [self quest1];
     }
     return self;
 }
@@ -78,6 +70,24 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
+    [self quest2];
+    
+    [self quest3];
+}
+
+- (void)quest1{
+    
+    //Calling class method will returns the class object for the receiver’s class.
+    NSLog(@"%@", NSStringFromClass([self class]));
+    NSLog(@"%@", NSStringFromClass([super class]));
+    
+    //问题1:
+    //Test1ViewController / Test1ViewController
+    //因为super为编译器标示符，向super发送的消息被编译成objc_msgSendSuper，但仍以self作为reveiver
+    //Returns the class object for the receiver’s class. 消息接收者是self
+}
+
+- (void)quest2{
     //问题2:
     //id cls = [Person1 class];
     //void *obj = &cls;
@@ -89,6 +99,8 @@
     
     //记录某次运行中分配的地址
     NSString  *test = @"666";
+    NSString  *test1 = @"777";
+    NSString  *test2 = @"888";
     NSLog(@"\ntest:%p", test);
     //test:0x107f8f310
     
@@ -111,6 +123,24 @@
     Person1 *person = (__bridge Person1*)obj;
     [person print] ;
     NSLog(@"\n person -- %p", person);
+}
+- (void)quest3{
+    
+    //下面代码的结果？
+    //1、isKindOfClass:
+    //Returns a Boolean value that indicates whether the receiver is an instance of given class or an instance of any class that inherits from that class.
+    //2、isMemberOfClass:
+    //Returns a Boolean value that indicates whether the receiver is an instance of a given class.
+    Class cla1 = [NSObject class];
+    Class cla2 = [Person1 class];
+    
+    //NSObject meta class 指向 NSObject class
+    BOOL res1 = [(id)[NSObject class] isKindOfClass:[NSObject class]];//true
+    BOOL res2 = [(id)[NSObject class] isMemberOfClass:[NSObject class]];//false
+    BOOL res3 = [(id)[Person1 class] isKindOfClass:[Person1 class]];//false
+    BOOL res4 = [(id)[Person1 class] isMemberOfClass:[Person1 class]];//false
+    BOOL res5 = [(id)[Person1 class] isKindOfClass:[NSObject class]];//true
+    NSLog(@"%d%d%d%d%d",res1,res2,res3,res4,res5);
 }
 
 @end

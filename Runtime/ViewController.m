@@ -20,7 +20,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    _dataSource = [NSMutableArray arrayWithArray:@[@"Test1ViewController"]];
+    NSArray *array = @[@{@"class":@"Test1ViewController", @"info":@"2019.04.11 runtime面试题"},
+                       ];    
+    _dataSource = [NSMutableArray arrayWithArray:array];
     _tableView.delegate= self;
     _tableView.dataSource = self;
 //    [_tableView reloadData];
@@ -37,15 +39,18 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"UITableViewCell"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"UITableViewCell"];
     }
-    cell.textLabel.text = self.dataSource[indexPath.row];
-    cell.detailTextLabel.text = @"2019.04.11 runtime 面试题";
+    NSDictionary *dict = self.dataSource[indexPath.row];
+    cell.textLabel.text = dict[@"class"];
+    cell.detailTextLabel.text = dict[@"info"];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSString *className = self.dataSource[indexPath.row];
+    
+    NSDictionary *dict = self.dataSource[indexPath.row];
+    NSString *className = dict[@"class"];
     Class class = NSClassFromString(className);
     [self.navigationController pushViewController:[class new] animated:true];
 }
